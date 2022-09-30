@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surivival</title>
+</head>
+<body>
+    <form action="" method="post">
+        {% csrf_token %}
+        {% for q in qs %}
+            {{q.question}}
+            <select name="{{q.question}}" id="">
+                <option value="{{q.op1}}">{{q.op1}}</option>
+                <option value="{{q.op2}}">{{q.op2}}</option>
+                <option value="{{q.op3}}">{{q.op3}}</option>
+                <option value="{{q.op1}}">{{q.op4}}</option>
+            </select>
+        {% endfor %}
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
