@@ -1,0 +1,73 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sharks</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+
+<body>
+
+    <div class="hero">
+        <div class="navbar">
+
+            <a href="{% url 'home' %}"><img class="logo" src="{% static 'images/logoo.png' %}" alt=""></a>
+
+            {% if user.is_authenticated %}
+            <p class="username">HI {{user.username}}!</p>
+            <a class="signup" href="{% url 'logout' %}">Logout</a>
+            {% else %}
+            <a class="username" href="{% url 'login' %}">Login</a>
+            <a class="signup" href="{% url 'signup' %}">Signup</a>
+            {% endif %}
+        </div>
+
+        <div class="content">
+
+            <h3>dangrous Ocean life </h3>
+            <h1>welcome to the sharks world</h1>
+            <button type="button"> servive from here</button>
+
+
+        </div>
+
+        <div class="side-bar">
+            <img src="{% static 'images/menu.png' %}" alt="" class="menu">
+            <div class="social-links">
+                <img src="{% static 'images/fb.png' %}">
+                <img src="{% static 'images/tw.png' %}">
+                <img src="{% static 'images/ig.png' %}">
+            </div>
+            <div class="useful-links">
+                <a href="{% url 'table' %}"> <img src="{% static 'images/scoreboard.png' %}"></a>
+                <a href="{% url 'draw' %}"> <img src="{% static 'images/drawing.jpg' %}"></a>
+            </div>
+        </div>
+        <div class="sharks">
+            <img src="{% static 'images/shark1.png' %}" class="f1">
+            <img src="{% static 'images/shark2.png' %}" class="f2">
+            <img src="{% static 'images/fish.png' %}" class="f3">
+            <img src="{% static 'images/fish.png' %}" class="f4">
+            <img src="{% static 'images/shark2.png' %}" class="f5">
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+</body>
+
+</html>
