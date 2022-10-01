@@ -1,0 +1,4 @@
+{
+  "appService.defaultWebAppToDeploy": "/subscriptions/f73cb586-646b-417d-8870-011ffba59ee6/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/SharkHacks4",
+  "appService.deploySubpath": "."
+}
