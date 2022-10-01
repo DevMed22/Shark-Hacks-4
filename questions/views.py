@@ -4,8 +4,10 @@ from .models import QuesModel
 from django.shortcuts import render
 from django.contrib.auth.models import User
 from pages.models import Player
+from django.contrib.auth.decorators import login_required
 
 
+@login_required
 def home(request):
     if request.method == 'POST':
         print(request.POST)
