@@ -1,52 +1,62 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
     <title>Surivival</title>
-</head>
-<body>
+  </head>
+  <body>
+    <div class="hh">
+      <div class="navbar">
+        <a href="{% url 'home' %}"
+          ><img class="logo" src="{% static 'images/logoo.png' %}" alt=""
+        /></a>
+      </div>
 
-<div class="container ">
- <form method='post'>
-    {% csrf_token %}
-    {% for q  in questions%}
-    <div class="form-group">
-      <label for="question">{{q.question}}</label>
+      <div class="questions">
+        <form method="post">
+          {% csrf_token %} {% for q in questions%}
+
+          <label for="question">{{q.id}}-{{q.question}}</label>
+          <input
+            type="radio"
+            name="{{q.question}}"
+            id="gridRadios1"
+            value="{{q.op1}}"
+            checked
+          />
+          <label for="gridRadios1"> {{q.op1}} </label>
+          <input
+            type="radio"
+            name="{{q.question}}"
+            id="gridRadios2"
+            value="{{q.op2}}"
+          />
+          <label for="gridRadios2"> {{q.op2}} </label>
+          <input
+            type="radio"
+            name="{{q.question}}"
+            id="gridRadios1"
+            value="{{q.op3}}"
+          />
+          <label for="gridRadios1"> {{q.op3}} </label>
+          <input
+            type="radio"
+            name="{{q.question}}"
+            id="gridRadios2"
+            value="{{q.op4}}"
+          />
+          <label for="gridRadios2"> {{q.op4}} </label>
+          <br />
+          {% endfor %}
+          <br />
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
     </div>
-    <div class="form-check">
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="{{q.question}}" id="gridRadios1" value="{{q.op1}}" checked>
-            <label class="form-check-label" for="gridRadios1">
-                {{q.op1}}
-            </label>
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="{{q.question}}" id="gridRadios2" value="{{q.op2}}">
-            <label class="form-check-label" for="gridRadios2">
-                {{q.op2}}
-            </label>
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="{{q.question}}" id="gridRadios1" value="{{q.op3}}">
-            <label class="form-check-label" for="gridRadios1">
-                {{q.op3}}
-            </label>
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="{{q.question}}" id="gridRadios2" value="{{q.op4}}">
-            <label class="form-check-label" for="gridRadios2">
-                {{q.op4}}
-            </label>
-        </div>
-        <br>
-    </div>    
-    {% endfor %}
-    <br>
-    <button type="submit" class="btn btn-primary">Submit</button>
-  </form> 
-</div>
-
-</body>
+  </body>
 </html>
